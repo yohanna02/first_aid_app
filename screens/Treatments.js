@@ -1,8 +1,8 @@
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet, ScrollView } from "react-native";
 import { useEffect, useState } from "react";
 import firstAidData from "../data";
 
-export default function TreatmentScreen({ route, navigation }) {
+export default function TreatmentScreen({ route }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -11,35 +11,48 @@ export default function TreatmentScreen({ route, navigation }) {
   }, []);
 
   return (
-    <View>
+    <ScrollView>
       {data && (
-        <>
-            <View style={styles.imageContainer}>
-                <Image source={data.image} style={styles.image} />
-            </View>
-            <View style={styles.textContainer}>
-                <Text style={{color: "red"}}>Hello</Text>
-            </View>
-        </>
+        <View>
+          <View style={styles.imageContainer}>
+            <Image source={data.image} style={styles.image} />
+          </View>
+          <View style={styles.treatmentContainer}>
+              {data.treatments.map((treatment, index) => (
+                <View key={index}>
+                  { treatment.heading === "" ? <Text></Text> : <Text style={styles.heading}>{index + 1}. {treatment.heading}</Text>}
+                  <Text style={styles.treatmentText}>{ treatment.treatment }</Text>
+                </View>
+              ))}
+          </View>
+        </View>
       )}
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
-    flexDirection: "column"
-  },
+
+  },  
   imageContainer: {
-    flex: 1,
-    height: "10%"
   },
   image: {
     width: "100%",
-    // height: 100
+    height: 250
   },
-  textContainer: {
-    flex: 2
+  treatmentContainer: {
+  },
+  heading: {
+    marginTop: 10,
+    paddingLeft: 10,
+    fontSize: 30
+  },
+  treatmentText: {
+    margin: 10,
+    padding: 10,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    lineHeight: 25
   }
 });
