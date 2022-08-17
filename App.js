@@ -10,11 +10,6 @@ import TreatmentScreen from './screens/Treatments';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [showModal, setShowModal] = useState(false);
-
-  function toggleModal() {
-    setShowModal(prevShowModal => !prevShowModal);
-  }
 
   return (
     <>
@@ -23,7 +18,7 @@ export default function App() {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{ title: 'First Aid', statusBarStyle: "dark" }}
+            options={{ title: 'Home Page', statusBarStyle: "dark" }}
           />
           <Stack.Screen
             name="Treatment"
