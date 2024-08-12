@@ -14,16 +14,15 @@ export default function App() {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{statusBarStyle: "dark"}}>
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{ title: 'Home Page', statusBarStyle: "dark" }}
+            options={{ title: 'Home Page' }}
           />
           <Stack.Screen
             name="Treatment"
             component={TreatmentScreen}
-            options={{statusBarStyle: "dark"}}
           />
         </Stack.Navigator>
       </NavigationContainer>

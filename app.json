@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "first_aid_app",
+    "name": "First Aid Kit",
     "slug": "first_aid_app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#e5f3fb"
+      "backgroundColor": "#2A2D3A"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -29,6 +29,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "aec49cab-bac5-4fe1-9d0e-2e08f0450dd5"
+      }
     }
   }
 }
